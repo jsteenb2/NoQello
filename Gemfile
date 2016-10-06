@@ -11,6 +11,7 @@ source "https://rails-assets.org" do
   gem "rails-assets-angular-devise"
 end
 
+gem 'faker'
 # Use pg as the database for Active Record
 gem 'pg'
 # Use Puma as the app server

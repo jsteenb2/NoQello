@@ -1,0 +1,8 @@
+<%= content_for(:angular_app) do %>
+  ng-app="app"
+<% end %>
+<div class="container">
+  <h1>Projects Page</h1>
+  <div class="pull-right" ui-view="boardNav"></div>
+  <div ui-view="board"></div>  
+</div>
