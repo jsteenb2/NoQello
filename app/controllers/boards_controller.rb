@@ -8,8 +8,9 @@ class BoardsController < ApplicationController
 
   def show
     @board = Board.find(params[:id])
+    @lists = @board.lists.includes(:cards)
     respond_to do |format|
-      format.json { render json: @board.to_json( include: :lists ) }
+      format.json { render :show }
     end
   end
 end
