@@ -1,11 +1,3 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">{{boards[0].lists[0].title}}</h3>
-    <p>
-      {{ boards[0].lists[0].description }}
-    </p>
-  </div>
-  <div class="panel-body">
-    Panel content
-  </div>
+<div class="row">
+  <lister ng-repeat="list in board.lists" list="list"></lister>
 </div>

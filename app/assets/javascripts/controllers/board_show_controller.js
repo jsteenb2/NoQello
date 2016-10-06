@@ -1,3 +1,5 @@
-app.controller("boardShowCtrl", ['$scope', "boards", function($scope, boards){
+app.controller("boardShowCtrl", ['$scope', "board", "boardService", "listService", function($scope, board, boardService, listService){
 
+  $scope.board = board;
+  console.log($scope.board);
 }]);

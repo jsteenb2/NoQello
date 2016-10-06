@@ -31,31 +31,50 @@ app.config([
   '$urlRouterProvider',
   function($stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/boards');
 
     $stateProvider
       .state('home', {
         abstract: true
       })
       .state('home.boards', {
-        url: "/",
+        // boards include lists for that board but not the card
+        url: "/boards",
         views: {
           "boardNav@": {
             templateUrl: "/templates/boards/dropdown.html",
             controller: "boardNavCtrl"
           },
           'board@': {
+            templateUrl: "/templates/boards/index.html",
+            controller: "boardIndexCtrl"
+          }
+        },
+        resolve: {
+          boards: ['boardService', function(boardService) {
+              return boardService.getBoards().then(function(response){
+                return response.plain();
+              });
+            }
+          ]
+        }
+      })
+      .state('home.boards.show', {
+        url: "/:id",
+        views: {
+          "board@": {
             templateUrl: "/templates/boards/show.html",
             controller: "boardShowCtrl"
           }
         },
         resolve: {
-          boards: ['boardService', function(boardService) {
-              var boards = boardService.getBoards().$object;
-              console.log(boards);
-              return boards
-            }
-          ]
+          board: ['boardService', "$stateParams", function(boardService, $stateParams){
+            console.log($stateParams.id);
+            return boardService.getBoard($stateParams.id).then(function(data){
+              console.log(data);
+              return data;
+            });
+          }]
         }
       })
 

@@ -1,5 +1,1 @@
-<select>
-  <option>
-    New one
-  </option>
-</select>
+<select ng-model="selectedBoard" ng-change="changeState(selectedBoard)" ng-options="board.title for board in boards"></select>

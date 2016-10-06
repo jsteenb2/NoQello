@@ -1,0 +1,13 @@
+<div class="col-sm-4">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">{{list.title}}</h3>
+      <p>
+        {{ list.description }}
+      </p>
+    </div>
+    <div class="panel-body">
+      <card-box ng-repeat="card in cards()" card="card"></card-box>
+    </div>
+  </div>
+</div>
