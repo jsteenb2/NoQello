@@ -48,6 +48,14 @@ app.config([
             templateUrl: "/templates/boards/show.html",
             controller: "boardShowCtrl"
           }
+        },
+        resolve: {
+          boards: ['boardService', function(boardService) {
+              var boards = boardService.getBoards().$object;
+              console.log(boards);
+              return boards
+            }
+          ]
         }
       })
 
