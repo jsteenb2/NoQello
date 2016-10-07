@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ui.router', 'restangular', 'Devise', 'ui.bootstrap', 'infinite-scroll']);
+var app = angular.module('app', ['ui.router', 'restangular', 'Devise', "xeditable", 'angularModalService']);
 
 app.factory('_', [
   '$window',
@@ -80,4 +80,17 @@ app.config([
 
 app.run(function($rootScope){
   $rootScope.$on("$stateChangeError", console.log.bind(console));
+});
+
+
+// app.run(function(editableOptions) {
+//   editableOptions.theme = 'bs3';
+//   editableThemes.bs3.inputClass = 'input-sm';
+//   editableThemes.bs3.buttonsClass = 'btn-sm';
+// });
+
+app.run(function(editableOptions, editableThemes) {
+  editableThemes.bs3.inputClass = 'input-sm';
+  editableThemes.bs3.buttonsClass = 'none';
+  editableOptions.theme = 'bs3';
 });

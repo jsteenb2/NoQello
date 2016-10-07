@@ -4,7 +4,19 @@ app.factory("listService", ["Restangular", function(Restangular) {
     return Restangular.one("lists", id).get();
   };
 
+  var updateList = function(params){
+    var data = {
+      list: {
+        title: params.title,
+        description: params.description
+      }
+    };
+    return Restangular.one("lists", params.id)
+      .patch(data);
+  };
+
   return {
-    getList: getList
+    getList: getList,
+    updateList: updateList
   };
 }]);

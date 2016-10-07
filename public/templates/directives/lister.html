@@ -1,15 +1,16 @@
 <div class="col-sm-4">
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h3 class="panel-title">{{list.title}}</h3>
+      <h3 class="panel-title"><a onbeforesave="updateList({id: list.id, title: $data})" editable-text="list.title">{{list.title}}</a></h3>
       <p>
-        {{ list.description }}
+        <a onbeforesave="updateList({id: list.id, description: $data})" editable-text="list.description">{{list.description}}</a>
       </p>
     </div>
     <div class="panel-body">
-      <div class="card-box" ng-repeat="card in cards">
+      <!-- <div class="card-box" ng-repeat="card in cards">
         {{card.description}}
-      </div>
+      </div> -->
+      <card-box ng-repeat="card in cards" card="card"></card-box>
     </div>
   </div>
 </div>

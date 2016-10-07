@@ -1,4 +1,4 @@
-app.directive("cardBox", [function(){
+app.directive("cardBox", ["ModalService", function(ModalService){
 
   return {
     templateUrl: "templates/directives/card_box.html",
@@ -6,7 +6,22 @@ app.directive("cardBox", [function(){
     scope: {
       card: "="
     },
-    link: function(scope){
-    }
-  };
+    link: function(scope, el, attr){
+      scope.show = function() {
+        ModalService.showModal({
+            templateUrl: 'templates/modals/card_modal.html',
+            controller: function($scope){
+              $scope.cardController = this;
+              this.msg = "hellow world"
+              $scope.card = scope.card;
+            }
+        }).then(function(modal) {
+            modal.element.modal();
+            modal.close.then(function(result) {
+                $scope.message = "You said " + result;
+            });
+        });
+    };
+  }
+};
 }]);

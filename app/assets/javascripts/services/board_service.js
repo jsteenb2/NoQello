@@ -26,24 +26,28 @@ app.factory("boardService", ["Restangular", "_", function(Restangular, _) {
     return Restangular.one("boards", id).get();
   };
 
-  var updateSelectedBoard = function(board){
-    _selectedBoard = board;
-  };
-
-  var getSelectedBoard = function(){
-    return _selectedBoard;
-  };
-
   var removeBoard = function(board){
-    return board.remove();
+    return board.remove().then(function(response){
+      var idx = _.findIndex(_boards, board);
+      _boards.splice(idx, 1);
+    });
+  };
+
+  var updateBoard = function(boardParams){
+    var data = {
+      board: {
+        title: boardParams.title
+      }
+    };
+    return Restangular.one("boards", boardParams.id)
+          .patch(data);
   };
 
   return {
     getBoards: getBoards,
-    updateSelectedBoard: updateSelectedBoard,
-    getSelectedBoard: getSelectedBoard,
     getBoard: getBoard,
     createBoard: createBoard,
-    removeBoard: removeBoard
+    removeBoard: removeBoard,
+    updateBoard: updateBoard
   };
 }]);
