@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ui.router', 'restangular', 'Devise', 'ui.bootstrap']);
+var app = angular.module('app', ['ui.router', 'restangular', 'Devise', 'ui.bootstrap', 'infinite-scroll']);
 
 app.factory('_', [
   '$window',
@@ -53,7 +53,7 @@ app.config([
         resolve: {
           boards: ['boardService', function(boardService) {
               return boardService.getBoards().then(function(response){
-                return response.plain();
+                return response;
               });
             }]
         }

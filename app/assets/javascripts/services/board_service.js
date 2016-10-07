@@ -34,11 +34,16 @@ app.factory("boardService", ["Restangular", "_", function(Restangular, _) {
     return _selectedBoard;
   };
 
+  var removeBoard = function(board){
+    return board.remove();
+  };
+
   return {
     getBoards: getBoards,
     updateSelectedBoard: updateSelectedBoard,
     getSelectedBoard: getSelectedBoard,
     getBoard: getBoard,
-    createBoard: createBoard
+    createBoard: createBoard,
+    removeBoard: removeBoard
   };
 }]);

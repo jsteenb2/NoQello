@@ -19,6 +19,17 @@ app.controller("boardIndexCtrl", ['$scope', "boards","boardService", "$state", f
       });
   };
 
+  $scope.delete = function(bIdx){
+    var byeBoard = $scope.boards[bIdx];
+    return boardService.removeBoard(byeBoard)
+            .then(function(response){
+              $scope.boards.splice(bIdx, 1);
+              return;
+            }).catch(function(reason){
+              console.log(reason);
+            });
+  };
+
   $scope.reset = function(){
     $scope.newFlag = false;
     $scope.newBoard = {};
