@@ -6,6 +6,7 @@ gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 
 gem 'angularjs-rails'
 gem 'angular_rails_csrf'
+gem 'angular-ui-bootstrap-rails'
 gem 'devise'
 source "https://rails-assets.org" do
   gem "rails-assets-angular-devise"

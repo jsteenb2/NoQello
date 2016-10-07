@@ -1,13 +1,30 @@
-app.factory("boardService", ["Restangular", function(Restangular) {
+app.factory("boardService", ["Restangular", "_", function(Restangular, _) {
   var _selectedBoard;
 
+  var _boards = [];
+
   var getBoards = function(){
-    return Restangular.all("boards").getList();
+    if(_.isEmpty(_boards)){
+      return Restangular.all("boards").getList().then(function(response){
+        _boards = response;
+        return response;
+      });
+    } else {
+      return Promise.resolve(_boards);
+    }
+  };
+
+  var createBoard = function(params){
+    return Restangular.all("boards").post(params)
+      .then(function(data){
+        _boards.push(data);
+        return data;
+      });
   };
 
   var getBoard = function(id){
     return Restangular.one("boards", id).get();
-  }
+  };
 
   var updateSelectedBoard = function(board){
     _selectedBoard = board;
@@ -21,6 +38,7 @@ app.factory("boardService", ["Restangular", function(Restangular) {
     getBoards: getBoards,
     updateSelectedBoard: updateSelectedBoard,
     getSelectedBoard: getSelectedBoard,
-    getBoard: getBoard
+    getBoard: getBoard,
+    createBoard: createBoard
   };
 }]);

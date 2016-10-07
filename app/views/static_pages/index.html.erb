@@ -2,7 +2,12 @@
   ng-app="app"
 <% end %>
 <div class="container">
-  <h2>Projects Page</h2>
-  <div class="pull-right" ui-view="boardNav"></div>
+  <div class="row">
+    <div class='col-sm-8'>
+      <h2>Projects Page</h2>
+    </div>
+    <div class="col-sm-4 text-right" ui-view="boardNav"></div>
+  </div>
+
   <div ui-view="board"></div>
 </div>

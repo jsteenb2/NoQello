@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ui.router', 'restangular', 'Devise']);
+var app = angular.module('app', ['ui.router', 'restangular', 'Devise', 'ui.bootstrap']);
 
 app.factory('_', [
   '$window',
@@ -55,8 +55,7 @@ app.config([
               return boardService.getBoards().then(function(response){
                 return response.plain();
               });
-            }
-          ]
+            }]
         }
       })
       .state('home.boards.show', {
@@ -69,14 +68,16 @@ app.config([
         },
         resolve: {
           board: ['boardService', "$stateParams", function(boardService, $stateParams){
-            console.log($stateParams.id);
             return boardService.getBoard($stateParams.id).then(function(data){
-              console.log(data);
               return data;
             });
           }]
         }
       })
-
   }
 ]);
+
+
+app.run(function($rootScope){
+  $rootScope.$on("$stateChangeError", console.log.bind(console));
+});

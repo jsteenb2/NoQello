@@ -15,6 +15,7 @@
 // =require angular
 // =require angular-devise
 // =require angular-ui-router
+//= require angular-ui-bootstrap-tpls
 // =require lodash
 // =require restangular
 //= require_tree .

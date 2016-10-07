@@ -12,16 +12,16 @@ List.destroy_all
 Card.destroy_all
 
 puts "repopulating. . . . . .  . . . . . "
-5.times do |i|
-  User.create!(email: "email#{i}@example.com", password: "chuckskick")
+4.times do |i|
+  User.create!(email: "#{i}@the.com", password: "asdfjk")
 end
 
 puts "repopulation complete"
 
 puts "Adding boards with lists and thier cards . . . ."
 
-2.times do |i|
-  b = Board.create!(title: "title ##{i}")
+10.times do |i|
+  b = User.all.sample.boards.create!(title: "board title ##{i}")
   2.times do |j|
     b.lists.create!(title: "list title ##{j}", description: Faker::Pokemon.location)
     2.times do |k|

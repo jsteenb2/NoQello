@@ -24,4 +24,31 @@
   padding: 0.4em 0.4em;
   border: 1px solid #333;
   margin-bottom: 15px;
+  min-height: 100px;
+}
+
+.new-card-box {
+  min-height: 200px;
+  width: 100%;
+  line-height: 140px;
+  font-size: 2em;
+  border: 1px solid gray;
+  background-color: gray;
+  border-radius: 5px;
+  color: black;
+}
+
+.new-card-box:hover {
+   background-image: linear-gradient(to bottom, hsl(0, 16%, 14%), #333);
+}
+
+.board-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.board-link:hover {
+  h4, p {
+      text-decoration: none;
+  }
 }
