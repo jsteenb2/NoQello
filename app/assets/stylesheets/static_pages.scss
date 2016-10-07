@@ -53,4 +53,11 @@
   }
 }
 
-.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+.nav, .pagination, .carousel, .panel-title, .thumbnail, a { cursor: pointer; }
+
+.panel-heading {
+  p {
+    margin-bottom: 0;
+    margin-top: 10px;
+  }
+}

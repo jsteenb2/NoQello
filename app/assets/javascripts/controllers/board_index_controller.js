@@ -55,4 +55,13 @@ app.controller("boardIndexCtrl", ['$scope', "boards","boardService", "$state", "
         return;
       });
   };
+// deleteList({list: list, board: board})
+  $scope.deleteList = function(params){
+    return listService.removeList(params.list.id)
+      .then(function(response){
+        var listIdx = _.findIndex(params.board.lists, params.list);
+        params.board.lists.splice(listIdx, 1);
+        return;
+      });
+  };
 }]);

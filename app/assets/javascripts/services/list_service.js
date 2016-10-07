@@ -15,8 +15,13 @@ app.factory("listService", ["Restangular", function(Restangular) {
       .patch(data);
   };
 
+  var removeList = function(id){
+    return Restangular.one("lists", id).remove();
+  };
+
   return {
     getList: getList,
-    updateList: updateList
+    updateList: updateList,
+    removeList: removeList
   };
 }]);

@@ -1,1 +1,11 @@
-<select ng-model="selectedBoard" ng-change="changeState(selectedBoard)" ng-options="board.title for board in boards"></select>
+<div class="btn-group">
+  <button ng-click="show()" class="btn btn-primary" ><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+  <button type="button" ui-sref="home.boards" class="btn btn-primary">All Boards</button>
+  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="caret"></span>
+    <span class="sr-only">Toggle Dropdown</span>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+    <li><a ng-click="changeState(board)" ng-repeat="board in boards" ng-model="selectedBoard">{{board.title}}</a></li>
+  </ul>
+</div>

@@ -7,18 +7,18 @@ app.directive("cardBox", ["ModalService", function(ModalService){
       card: "="
     },
     link: function(scope, el, attr){
+
       scope.show = function() {
         ModalService.showModal({
             templateUrl: 'templates/modals/card_modal.html',
-            controller: function($scope){
-              $scope.cardController = this;
-              this.msg = "hellow world"
-              $scope.card = scope.card;
+            controller: 'cardModalController',
+            inputs: {
+              card: scope.card
             }
         }).then(function(modal) {
-            modal.element.modal();
+            modal.element.show();
             modal.close.then(function(result) {
-                $scope.message = "You said " + result;
+                scope.message = "You said " + result;
             });
         });
     };
