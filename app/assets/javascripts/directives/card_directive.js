@@ -1,10 +1,11 @@
-app.directive("cardBox", ["ModalService", function(ModalService){
+app.directive("cardBox", ["ModalService", 'cardService', function(ModalService, cardService, $scope){
 
   return {
     templateUrl: "templates/directives/card_box.html",
     restrict: "E",
     scope: {
-      card: "="
+      card: "=",
+      list: "="
     },
     link: function(scope, el, attr){
 
@@ -20,6 +21,15 @@ app.directive("cardBox", ["ModalService", function(ModalService){
             modal.close.then(function(result) {
                 scope.message = "You said " + result;
             });
+        });
+    };
+
+    scope.deleteCard = function(card){
+      return cardService.removeCard(card.id)
+        .then(function(response){
+          _.remove(scope.list.cards, card);
+          console.log("in then directive");
+          return;
         });
     };
   }

@@ -1,16 +1,17 @@
 <div class="col-sm-4">
   <div class="panel panel-default">
     <div class="panel-heading">
+      <a href="" class="pull-right text-danger" ng-click="delete(list)"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
       <h3 class="panel-title"><a onbeforesave="updateList({id: list.id, title: $data})" editable-text="list.title">{{list.title}}</a></h3>
       <p>
         <a onbeforesave="updateList({id: list.id, description: $data})" editable-text="list.description">{{list.description}}</a>
       </p>
     </div>
     <div class="panel-body">
-      <card-box ng-repeat="card in cards" card="card"></card-box>
-    </div>
-    <div class="col-sm-12 text-center">
-      <a class="" ng-click="addCardModal()">+ new card</a>
+      <card-box ng-repeat="card in cards" card="card" list="list"></card-box>
+      <div class="col-sm-12 text-center">
+        <a class="" ng-click="show()">+ new card</a>
+      </div>
     </div>
   </div>
 </div>

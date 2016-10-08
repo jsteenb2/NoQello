@@ -11,24 +11,12 @@ app.controller("boardIndexCtrl", ['$scope', "boards","boardService", "$state", "
     $scope.newFlag = !$scope.newFlag;
   };
 
-  $scope.createBoard = function(){
-    return boardService.createBoard($scope.newBoard)
-      .then(function(response){
-        $scope.boards = $scope.getBoards();
-        $state.go("home.boards.show", {id: response.id});
-        $scope.reset();
-        return;
-      }).catch(function(reason){
-        console.log(reason);
-      });
-  };
-
-  $scope.delete = function(bIdx){
-    var byeBoard = $scope.boards[bIdx];
-    return boardService.removeBoard(byeBoard)
+  $scope.delete = function(board){
+    console.log(board);
+    return boardService.removeBoard(board)
             .then(function(response){
-              // $scope.boards.splice(bIdx, 1);
-              $scope.getBoards();
+              _.remove(scope.boards, {id: board.id
+                });
               return;
             }).catch(function(reason){
               console.log(reason);
@@ -46,14 +34,6 @@ app.controller("boardIndexCtrl", ['$scope', "boards","boardService", "$state", "
           $scope.getBoards();
           return;
         });
-  };
-
-  $scope.updateList = function(listParams){
-    return listService.updateList(listParams)
-      .then(function(response){
-        $scope.getBoards();
-        return;
-      });
   };
 
   $scope.deleteList = function(params){

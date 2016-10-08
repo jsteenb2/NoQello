@@ -10,7 +10,23 @@ app.factory("cardService", ["Restangular", function(Restangular) {
       .patch(data);
   };
 
+  var createCard = function(params){
+    var data = {
+      card: {
+        list_id: params.list_id,
+        description: params.description
+      }
+    };
+    return Restangular.all("cards").post(data);
+  };
+
+  var removeCard = function(id){
+    return Restangular.one("cards", id).remove();
+  };
+
   return {
-    updateCard: updateCard
+    updateCard: updateCard,
+    createCard: createCard,
+    removeCard: removeCard
   };
 }]);

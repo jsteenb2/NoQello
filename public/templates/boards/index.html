@@ -2,17 +2,11 @@
   <div class="col-sm-4" ng-repeat="board in boards">
       <div class="panel panel-default">
           <div class="panel-heading">
-              <a href="" class="pull-right text-danger" ng-click="delete($index)"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+              <a href="" class="pull-right text-danger" ng-click="delete(board)"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
               <h3  class="panel-title"><a editable-text="board.title" onbeforesave="updateBoard({id: board.id, title: $data})">{{board.title}}</a></h3>
           </div>
           <div class="panel-body">
-              <div class="card-box" ng-repeat="list in board.lists">
-                  <a href="" class="pull-right text-danger" ng-click="deleteList({list: list, board: board})"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
-                  <h4><a onbeforesave="updateList({id: list.id, title: $data})" editable-text="list.title">{{list.title}}</a></h4>
-                  <p>
-                    <a onbeforesave="updateList({id: list.id, description: $data})" editable-text="list.description">{{list.description}}</a>
-                  </p>
-              </div>
+              <board-list ng-repeat="list in board.lists" list="list" board="board"></board-list>
           </div>
         </div>
     </div>

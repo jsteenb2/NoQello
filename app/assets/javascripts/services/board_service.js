@@ -27,9 +27,11 @@ app.factory("boardService", ["Restangular", "_", function(Restangular, _) {
   };
 
   var removeBoard = function(board){
-    return board.remove().then(function(response){
-      var idx = _.findIndex(_boards, board);
-      _boards.splice(idx, 1);
+    return Restangular.one("boards", board.id).remove().then(function(response){
+      // var idx = _.findIndex(_boards, board);
+      // _boards.splice(idx, 1);
+      _.remove(_boards, {id: board.id
+        });
     });
   };
 

@@ -1,4 +1,4 @@
-app.directive("lister", ['listService', function(listService){
+app.directive("lister", ['listService', 'ModalService','$rootScope', 'cardService', function(listService, ModalService, $rootScope, cardService){
 
   return {
     templateUrl: "templates/directives/lister.html",
@@ -16,6 +16,30 @@ app.directive("lister", ['listService', function(listService){
           }).catch(function(reason){
             console.log(reason);
           });
+      };
+
+      scope.delete = function(){
+        return listService.removeList(scope.list.id)
+          .then(function(response){
+            console.log(scope.list);
+              scope.$emit('removedList', { data: scope.list });
+              return response;
+          });
+      };
+
+      scope.show = function() {
+        ModalService.showModal({
+            templateUrl: 'templates/modals/new_card_modal.html',
+            controller: 'newCardModalController',
+            inputs: {
+              list: scope.list
+            }
+        }).then(function(modal) {
+            modal.element.show();
+            modal.close.then(function(result) {
+              //TODO: add a flash message here
+            });
+        });
       };
     }
   };

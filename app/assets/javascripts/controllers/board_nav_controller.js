@@ -1,5 +1,6 @@
 app.controller("boardNavCtrl", ['_', '$scope', "boards", '$state', 'ModalService', function(_, $scope, boards, $state, ModalService){
 
+  $scope.newBoard = {};
   $scope.boards = boards;
   $scope.changeState = function(board){
     $state.go("home.boards.show", { id: board.id});
