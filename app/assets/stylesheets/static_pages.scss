@@ -53,6 +53,15 @@
   }
 }
 
+.new-list-box {
+  margin-top: 50px;
+  font-size: 2.2em;
+}
+
+.new-list-box a:hover {
+  text-decoration: none;
+}
+
 .nav, .pagination, .carousel, .panel-title, .thumbnail, a { cursor: pointer; }
 
 .panel-heading {

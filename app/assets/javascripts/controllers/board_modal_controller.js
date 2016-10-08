@@ -1,4 +1,4 @@
-app.controller('boardModalController', ['$scope', 'close', 'boardService', '$state', function($scope, close, boardService, $state){
+app.controller('boardModalController', ['$scope', 'close', 'boardService', '$state',  function($scope, close, boardService, $state){
 
   $scope.newBoard = {};
 

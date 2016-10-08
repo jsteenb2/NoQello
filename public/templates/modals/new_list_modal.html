@@ -1,0 +1,19 @@
+<div class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="close()" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Create a new list</h4>
+            </div>
+            <div class="modal-body form-group">
+                <form>
+                  <input ng-model="newList.title" type="text" class="form-control" placeholder="Title...." />
+                  <input ng-model="newList.description" type="text" class="form-control" placeholder="List...." />
+                </form>
+            </div>
+            <div class="modal-footer text-center">
+                <button class="btn btn-danger" ng-click="close()">Cancel</button> <button class="btn btn-success" ng-click="createList()">Create!</button>
+            </div>
+        </div>
+    </div>
+</div>

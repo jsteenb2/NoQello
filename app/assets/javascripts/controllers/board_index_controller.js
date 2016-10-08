@@ -55,7 +55,7 @@ app.controller("boardIndexCtrl", ['$scope', "boards","boardService", "$state", "
         return;
       });
   };
-// deleteList({list: list, board: board})
+
   $scope.deleteList = function(params){
     return listService.removeList(params.list.id)
       .then(function(response){

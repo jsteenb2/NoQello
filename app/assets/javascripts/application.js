@@ -17,6 +17,7 @@
 // =require angular-ui-router
 //= require angular-ui-bootstrap-tpls
 //= require angular-modal-service
+//= require angular-animate
 //= require xeditable.min
 // =require lodash
 // =require restangular

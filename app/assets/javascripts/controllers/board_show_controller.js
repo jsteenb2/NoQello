@@ -3,13 +3,16 @@ app.controller("boardShowCtrl", ['$scope', "board", "ModalService", function($sc
 
   $scope.show = function(){
     ModalService.showModal({
-        templateUrl: 'templates/modals/new_board_modal.html',
-        controller: 'boardModalController',
+        templateUrl: 'templates/modals/new_list_modal.html',
+        controller: 'listModalController',
+        inputs: {
+          board: $scope.board
+        }
     }).then(function(modal) {
         modal.element.show();
         modal.close.then(function(result) {
-            scope.message = "You said " + result;
+          return;
         });
     });
-  }
+  };
 }]);

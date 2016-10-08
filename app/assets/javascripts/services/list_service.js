@@ -19,9 +19,21 @@ app.factory("listService", ["Restangular", function(Restangular) {
     return Restangular.one("lists", id).remove();
   };
 
+  var createList = function(params){
+    var data = {
+      list: {
+        title: params.title,
+        description: params.description,
+        board_id: params.board_id
+      }
+    };
+    return Restangular.all("lists").post(data);
+  };
+
   return {
     getList: getList,
     updateList: updateList,
-    removeList: removeList
+    removeList: removeList,
+    createList: createList
   };
 }]);
