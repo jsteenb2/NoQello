@@ -1,4 +1,4 @@
-app.controller("boardIndexCtrl", ['$scope', "boards","boardService", "$state", "listService", function($scope, boards, boardService, $state, listService){
+app.controller("boardIndexCtrl", ['$scope', "boards","boardService", "$state", "listService", "ModalService", function($scope, boards, boardService, $state, listService, ModalService){
 
   $scope.boards = boards;
   $scope.newFlag = false;
@@ -36,12 +36,19 @@ app.controller("boardIndexCtrl", ['$scope', "boards","boardService", "$state", "
         });
   };
 
-  $scope.deleteList = function(params){
-    return listService.removeList(params.list.id)
-      .then(function(response){
-        var listIdx = _.findIndex(params.board.lists, params.list);
-        params.board.lists.splice(listIdx, 1);
+  $scope.show = function(board){
+    ModalService.showModal({
+        templateUrl: 'templates/modals/new_list_modal.html',
+        controller: 'listModalController',
+        inputs: {
+          board: board
+        }
+    }).then(function(modal) {
+        modal.element.show();
+        modal.close.then(function(result) {
+          return;
+        });
         return;
-      });
+    });
   };
 }]);
