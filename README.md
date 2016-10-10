@@ -1,4 +1,4 @@
-# NoQSello
+# NoQello
 The not quite Trello, project management full-stack Angular/Ruby on Rails web application. NoQSello allows you to coordinate projects and todos akin to what the Trello web application would.
 
 ##Installation
