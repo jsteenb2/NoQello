@@ -9,7 +9,9 @@ class BoardsController < ApplicationController
   end
 
   def create
-    @board = Board.create({title: params[:title], user_id: current_user.id})
+    @board = Board.new(board_params)
+    @board.user_id = current_user.id
+    @board.save
     respond_to do |format|
       format.json { render json: @board }
     end
@@ -27,14 +29,11 @@ class BoardsController < ApplicationController
   def destroy
     @board = Board.find(params[:id])
     @board.destroy
-    # respond_to do |format|
-    #   format.json { render head :no_content }
-    # end
   end
 
   private
 
     def board_params
-      params.require(:board).permit(:title)
+      params.require(:board).permit(:title, :description)
     end
 end

@@ -1,7 +1,7 @@
 app.controller('listModalController', ['$scope', 'close', 'listService', '$stateParams', 'board', function($scope, close, listService, $stateParams, board){
 
   $scope.newList = {
-    board_id: $stateParams.id
+    board_id: board.id || $stateParams.id
   };
 
   $scope.createList = function(){

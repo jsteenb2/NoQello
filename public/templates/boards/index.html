@@ -4,6 +4,7 @@
           <div class="panel-heading">
               <div class="col-xs-10">
                 <h2  class="panel-title"><a editable-text="board.title" onbeforesave="updateBoard({id: board.id, title: $data})">{{board.title}}</a></h2>
+                <p><a editable-text="board.description" onbeforesave="updateBoard({id: board.id, description: $data})">{{board.description}}</a></p>
               </div>
               <div class="col-xs-2 text-right">
                 <a href="" class="text-danger" ng-click="delete(board)"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>

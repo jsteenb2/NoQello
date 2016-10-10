@@ -9,13 +9,19 @@
             <div class="modal-body ">
               <div class="row">
                 <div class="col-xs-10 col-xs-offset-1">
-                  <form>
-                      <div class="form-group">
-                        <input ng-model="newBoard.title" type="text" class="form-control" placeholder="Title...." />
+                  <form class="form-horizontal">
+                    <div class="form-group">
+                      <label for="board-title" class="col-sm-3 control-label">Title</label>
+                      <div class="col-sm-9">
+                        <input id="board-title" ng-model="newBoard.title" type="text" class="form-control" placeholder="Title...." />
                       </div>
-                      <div class="form-group">
+                    </div>
+                    <div class="form-group">
+                      <label for="board-description" class="col-sm-3 control-label">Description</label>
+                      <div class="col-sm-9">
                         <input ng-model="newBoard.description" type="text" class="form-control" placeholder="Description...." />
                       </div>
+                    </div>
                   </form>
                 </div>
               </div>

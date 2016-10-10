@@ -3,6 +3,9 @@ class CardsController < ApplicationController
 
   def create
     @card = Card.create(card_params)
+    if (!(params[:activity][:description] == ""))
+      @card.activities.create!(activity_params)
+    end
     respond_to do |format|
       format.json { render json: @card }
     end
@@ -28,6 +31,10 @@ class CardsController < ApplicationController
   private
 
     def card_params
-      params.require(:card).permit(:description, :list_id)
+      params.require(:card).permit(:description, :list_id, :title, :due_date, { :activities_attributes => [ :description, :completed ] })
+    end
+
+    def activity_params
+      params.require(:activity).permit(:description, :completed)
     end
 end

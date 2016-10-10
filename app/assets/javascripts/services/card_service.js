@@ -14,8 +14,12 @@ app.factory("cardService", ["Restangular", function(Restangular) {
     var data = {
       card: {
         list_id: params.list_id,
-        description: params.description
-      }
+        description: params.description,
+        title: params.title,
+        due_date: params.dueDate
+        // activity: params.newActivity
+      },
+      activity: params.newActivity
     };
     return Restangular.all("cards").post(data);
   };

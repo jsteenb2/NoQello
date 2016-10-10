@@ -8,6 +8,12 @@ json.board do |board|
     json.cards list.cards do |card|
       json.id card.id
       json.description card.description
+      json.dueDate card.due_date
+      json.completed card.completed
+      json.activities card.activities do |activity|
+        json.completed activity.completed
+        json.description activity.description
+      end
     end
   end
 end
