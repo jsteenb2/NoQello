@@ -3,6 +3,31 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import url(https://cdn.rawgit.com/arthursucks/opencomicfont/master/import.css);
 
+.animated {
+    -webkit-animation-duration: 4s;
+    animation-duration: 4s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
+    animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes shake {
+    0%, 100% {-webkit-transform: translateX(0);}
+    10%, 30%, 50%, 70%, 90% {-webkit-transform: translateX(-10px);}
+    20%, 40%, 60%, 80% {-webkit-transform: translateX(10px);}
+}
+@keyframes shake {
+    0%, 100% {transform: translateX(0);}
+    10%, 30%, 50%, 70%, 90% {transform: translateX(-10px);}
+    20%, 40%, 60%, 80% {transform: translateX(10px);}
+}
+.shake {
+    margin-left: 15px;
+    -webkit-animation-name: shake;
+    animation-name: shake;
+}
+
 body {
   font-family: 'Open Comic Font', sans;
   font-weight: lighter;
@@ -69,16 +94,19 @@ body {
 
 .new-list-box {
   margin-top: 50px;
-  font-size: 2.2em;
+  font-size: 1.5em;
+  transition: all .2s ease-in-out;
 }
 
 .new-list-box a:hover {
   text-decoration: none;
+  font-size: 2.2em;
 }
 
 .nav, .pagination, .carousel, .panel-title, .thumbnail, a { cursor: pointer; }
 
 .panel-heading {
+  padding-left: 5px;
   p {
     margin-bottom: 0;
     margin-top: 10px;
@@ -101,6 +129,7 @@ body {
   .navbar-brand {
     font-size: 2em;
     text-shadow: #343 -2px 2px 2px;
+    letter-spacing: 2px;
   }
 
   .caret {
@@ -108,6 +137,21 @@ body {
     border-top: 4px solid\9;
     border-right: 4px solid transparent;
     border-left: 4px solid transparent;
+    color: white;
+    opacity: 0.8;
+  }
+
+  .dropdown a {
+    color: white;
+  }
+
+  .dropdown a:hover {
+    opacity: 0.8;
+  }
+
+  .navbar-toggle {
+    background-color: #333;
+    border-color: #333;
   }
 }
 
@@ -124,7 +168,6 @@ body {
   }
 
   .board-list:hover .glyphicon-arrow-right {
-
     visibility: visible;
   }
 
@@ -132,6 +175,9 @@ body {
     background-color: #f05f40;
     background-image: none;
     min-height: 45px;
+    white-space: nowrap;
+    overflow: scroll;
+    text-overflow: ellipsis;
     .glyphicon-remove {
       visibility: hidden;
     }
@@ -145,11 +191,11 @@ body {
   .editable-click, a.editable-click {
     transition: all .2s ease-in-out;
     color: #333;
-    border-bottom: dashed 1px #333;
+    border: none;
   }
 
   .editable-click:hover, a.editable-click:hover {
-    font-size: 1.4em;
+    font-size: 1.2em;
     color: #444;
     border-bottom: dashed 1px #444;
     text-shadow: #333 -1px 1px 0px;
@@ -207,6 +253,10 @@ body {
       margin-right: 8px;
       margin-top: 5px;
     }
+
+    @media (max-width: 768px){
+      margin-bottom: 35px;
+    }
   }
 
   .list-card:hover .thumbnail {
@@ -247,8 +297,95 @@ body {
     color: #f05f40;
   }
 
+  .new-list-card-box {
+    margin-top: 10px;
+    font-size: 1.3em;
+    color: #f05f40;
+  }
+
   .thumbnail {
     transition: .3s;
     transform: rotateY(15deg);
   }
+
+  .new-list-link {
+    color: white;
+    opacity: 0.8;
+    transition: 0.3s;
+    text-decoration: none;
+  }
+
+  .new-list-link:hover {
+    opacity: 0.5;
+    font-size: 1.2em;
+  }
+
+  .btn-primary {
+    background-image: none;
+    border-color: #222;
+    background-color: #f05f40;
+    color: white;
+  }
+
+  .btn-primary:hover span {
+    opacity: 0.8;
+  }
+
+  .dropdown-menu-right {
+    background-color: #444;
+  }
+
+  .dropdown-menu-right a {
+    color: white;
+    opacity: 0.8;
+    background-image: none;
+    background-color: #444;
+  }
+
+  .dropdown-menu-right a:hover {
+    color: white;
+    opacity: 0.65;
+    background-image: none;
+    background-color: #444;
+  }
+
+  .title {
+      padding: 0;
+      margin: 0;
+  }
+
+  .cramped {
+    padding-top: 20px;
+    padding-bottom: 15px;
+  }
+
+  .scroll-wrap {
+    min-height: 100%;
+  }
+}
+
+#f-pw {
+  color: white;
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+#f-pw:hover {
+  opacity: 0.5;
+  font-size: 1.1em;
+}
+
+.modal.ng-enter {
+  transition: opacity .5s ease-out;
+  opacity: 0;
+}
+.modal.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+.modal.ng-leave {
+  transition: opacity .5s ease-out;
+  opacity: 1;
+}
+.modal.ng-leave.ng-leave-active {
+  opacity: 0;
 }

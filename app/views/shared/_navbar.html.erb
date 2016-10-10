@@ -8,17 +8,17 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">NoSQello</a>
+      <a class="navbar-brand" href="#">NoQello</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <% if current_user %>
-          <ul class="nav navbar-nav navbar-right">
+          <ul class="nav navbar-nav navbar-right text-right">
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.email %> <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="/users/sign_out" data-method='delete' rel='nofollow'>logout</a></li>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li class="text-right"><a href="/users/sign_out" data-method='delete' rel='nofollow'>logout</a></li>
               </ul>
             </li>
           </ul>
