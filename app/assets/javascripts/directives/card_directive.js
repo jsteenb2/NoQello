@@ -8,6 +8,7 @@ app.directive("cardBox", ["ModalService", 'cardService', function(ModalService, 
       list: "="
     },
     link: function(scope, el, attr){
+      console.log(scope.card);
 
       scope.show = function() {
         ModalService.showModal({
