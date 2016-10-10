@@ -12,14 +12,14 @@
 //
 //= require jquery
 //= require jquery_ujs
-// =require angular
-// =require angular-devise
-// =require angular-ui-router
+//= require angular
+//= require angular-devise
+//= require angular-ui-router
 //= require angular-ui-bootstrap-tpls
 //= require angular-modal-service
 //= require angular-animate
 //= require checklist-model
 //= require xeditable.min
-// =require lodash
-// =require restangular
+//= require lodash
+//= require restangular
 //= require_tree .
