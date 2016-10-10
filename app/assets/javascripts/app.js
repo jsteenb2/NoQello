@@ -84,19 +84,12 @@ app.config([
 ]);
 
 
-app.run(function($rootScope){
+app.run(['$rootScope',function($rootScope){
   $rootScope.$on("$stateChangeError", console.log.bind(console));
-});
+}]);
 
-
-// app.run(function(editableOptions) {
-//   editableOptions.theme = 'bs3';
-//   editableThemes.bs3.inputClass = 'input-sm';
-//   editableThemes.bs3.buttonsClass = 'btn-sm';
-// });
-
-app.run(function(editableOptions, editableThemes) {
+app.run(['editableOptions', 'editableThemes', function(editableOptions, editableThemes) {
   editableThemes.bs3.inputClass = 'input-sm';
   editableThemes.bs3.buttonsClass = 'none';
   editableOptions.theme = 'bs3';
-});
+}]);
