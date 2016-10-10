@@ -21,11 +21,15 @@ puts "repopulation complete"
 puts "Adding boards with lists and thier cards . . . ."
 
 10.times do |i|
-  b = User.all.sample.boards.create!(title: "board title ##{i}", description: Faker::ChuckNorris.fact)
+  b = User.all.sample.boards.create!( title: "board title ##{i}", description: Faker::ChuckNorris.fact)
   2.times do |j|
     b.lists.create!(title: "list title ##{j}", description: Faker::Pokemon.location)
     2.times do |k|
-      b.lists.last.cards.create!( description: Faker::ChuckNorris.fact )
+      b.lists.last.cards.create!( title: Faker::Pokemon.name, description: Faker::ChuckNorris.fact, due_date: Faker::Date.forward(300) )
+      2.times do |l|
+        b.lists.last.cards.last.activities.create!(
+        description: Faker::ChuckNorris.fact)
+      end
     end
   end
 end
