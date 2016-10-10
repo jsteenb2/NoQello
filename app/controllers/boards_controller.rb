@@ -2,7 +2,7 @@ class BoardsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @boards = Board.where(user_id: current_user.id).order(updated_at: :desc)
+    @boards = Board.includes(:lists).where(user_id: current_user.id).order(updated_at: :desc)
     respond_to do |format|
       format.json { render json: @boards.to_json( include: :lists) }
     end
@@ -18,7 +18,7 @@ class BoardsController < ApplicationController
   end
 
   def show
-    @board = Board.find(params[:id])
+    @board = Board.includes({lists: :cards}).find(params[:id])
   end
 
   def update

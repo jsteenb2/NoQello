@@ -1,11 +1,13 @@
 <div class="row" >
   <div class="col-sm-12 board-list">
-    <a href="" class="pull-right text-danger clear-fix" ng-click="deleteList(list)"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+    <a href="" class="pull-right text-danger clear-fix" ng-click="deleteList(list)">
+      <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+    </a>
     <a ui-sref="home.boards.show({id: board.id})">
       <div class="thumbnail">
         <div class="caption">
-          <h3>{{list.title}} <span class="glyphicon glyphicon-arrow-right animated shake" aria-hidden="true"></span></h3>
-          <p>{{list.description}}</p>
+            <span class="glyphicon glyphicon-arrow-right animated shake pull-left" aria-hidden="true"></span>
+            <h3 class='max-lines'>{{list.title}}</h3>
         </div>
       </div>
     </a>

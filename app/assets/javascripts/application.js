@@ -18,6 +18,7 @@
 //= require angular-ui-bootstrap-tpls
 //= require angular-modal-service
 //= require angular-animate
+//= require checklist-model
 //= require xeditable.min
 // =require lodash
 // =require restangular

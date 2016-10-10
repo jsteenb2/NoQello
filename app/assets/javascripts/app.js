@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ui.router', 'restangular', 'Devise', "xeditable", 'angularModalService', 'ngAnimate']);
+var app = angular.module('app', ['ui.router', 'ui.bootstrap', 'restangular', 'Devise', "xeditable", 'angularModalService', 'ngAnimate', "checklist-model"]);
 
 app.factory('_', [
   '$window',
@@ -75,7 +75,7 @@ app.config([
         resolve: {
           board: ['boardService', "$stateParams", function(boardService, $stateParams){
             return boardService.getBoard($stateParams.id).then(function(data){
-              return data;
+              return data.board;
             });
           }]
         }

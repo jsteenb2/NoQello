@@ -1,0 +1,10 @@
+<div class="form-group">
+  <div class="input-group">
+    <span class="input-group-addon">
+      <input ng-checked="activity.completed" ng-click="status()" type="checkbox" aria-label="...">
+    </span>
+    <p class="form-control">
+      <a onbeforesave="updateActivity({id: activity.id, description: $data})" editable-text="activity.description">{{activity.description}}</a>
+    </p>
+  </div>
+</div>
