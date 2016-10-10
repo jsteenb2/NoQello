@@ -1,9 +1,13 @@
 app.factory("cardService", ["Restangular", function(Restangular) {
 
   var updateCard = function(params){
+    console.log(params);
     var data = {
       card: {
-        description: params.description
+        description: params.description,
+        title: params.title,
+        completed: params.completed,
+        due_date: params.dueDate
       }
     };
     return Restangular.one("cards", params.id)
@@ -17,7 +21,6 @@ app.factory("cardService", ["Restangular", function(Restangular) {
         description: params.description,
         title: params.title,
         due_date: params.dueDate
-        // activity: params.newActivity
       },
       activity: params.newActivity
     };

@@ -2,13 +2,18 @@
   <div class="col-sm-4 scroll-wrap" ng-repeat="board in boards">
       <div class="panel">
           <div class="panel-heading">
-              <div class="col-xs-10">
-                <h2  class="panel-title"><a editable-text="board.title" onbeforesave="updateBoard({id: board.id, title: $data})">{{board.title}}</a></h2>
-                <p><a editable-text="board.description" onbeforesave="updateBoard({id: board.id, description: $data})">{{board.description}}</a></p>
-              </div>
-              <div class="col-xs-2 text-right">
-                <a href="" class="text-danger" ng-click="delete(board)"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
-              </div>
+            <!-- <div class="col-xs-10"> -->
+              <a href="" class="text-danger" ng-click="delete(board)"><span class="glyphicon glyphicon-remove pull-right" aria-hidden="true"></span></a>
+              <h2  class="panel-title">
+                <a editable-text="board.title" onbeforesave="updateBoard({id: board.id, title: $data})">{{board.title}}</a>
+              </h2>
+              <!-- <p class="max-lines panel-title" ng-show="board.description.length">
+                <a editable-text="board.description" onbeforesave="updateBoard({id: board.id, description: $data})">{{board.description}}</a>
+              </p> -->
+            </div>
+            <!-- <div class="col-xs-2 text-right"> -->
+
+            <!-- </div> -->
           </div>
           <div class="panel-body">
               <board-list ng-repeat="list in board.lists" list="list" board="board"></board-list>
@@ -18,4 +23,3 @@
           </div>
         </div>
     </div>
-</div>

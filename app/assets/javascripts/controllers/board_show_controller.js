@@ -1,5 +1,5 @@
 app.controller("boardShowCtrl", ['$scope', "board", "ModalService", "_", function($scope, board, ModalService, _){
-  $scope.board = board.board;
+  $scope.board = board;
 
   $scope.$on('removedList', function(ev, data){
     console.log(data.id);
