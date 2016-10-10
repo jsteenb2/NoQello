@@ -1,5 +1,5 @@
-<div class="row">
-  <div class="col-sm-4" ng-repeat="board in boards">
+<div class="row row-horizon">
+  <div class="col-sm-4 scroll-wrap" ng-repeat="board in boards">
       <div class="panel">
           <div class="panel-heading">
               <div class="col-xs-10">
@@ -12,7 +12,7 @@
           <div class="panel-body">
               <board-list ng-repeat="list in board.lists" list="list" board="board"></board-list>
               <div class="col-sm-12 text-center new-board-list-box">
-                <a class="" ng-click="show(board)">+ new list</a>
+                <a class="new-list-link" ng-click="show(board)">+ new list</a>
               </div>
           </div>
         </div>

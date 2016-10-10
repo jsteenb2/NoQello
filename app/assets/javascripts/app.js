@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ui.router', 'restangular', 'Devise', "xeditable", 'angularModalService']);
+var app = angular.module('app', ['ui.router', 'restangular', 'Devise', "xeditable", 'angularModalService', 'ngAnimate']);
 
 app.factory('_', [
   '$window',
@@ -48,6 +48,9 @@ app.config([
           'board@': {
             templateUrl: "/templates/boards/index.html",
             controller: "boardIndexCtrl"
+          },
+          'title@': {
+            templateUrl: "/templates/boards/board_title.html"
           }
         },
         resolve: {
@@ -64,6 +67,9 @@ app.config([
           "board@": {
             templateUrl: "/templates/boards/show.html",
             controller: "boardShowCtrl"
+          },
+          'title@': {
+            templateUrl: "/templates/boards/list_title.html"
           }
         },
         resolve: {

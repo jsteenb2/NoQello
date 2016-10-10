@@ -1,16 +1,20 @@
-<div class="col-sm-4">
-  <div class="panel panel-default">
+<div class="col-sm-4 scroll-wrap">
+  <div class="panel">
     <div class="panel-heading">
-      <a href="" class="pull-right text-danger" ng-click="delete(list)"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
-      <h3 class="panel-title"><a onbeforesave="updateList({id: list.id, title: $data})" editable-text="list.title">{{list.title}}</a></h3>
-      <p>
-        <a onbeforesave="updateList({id: list.id, description: $data})" editable-text="list.description">{{list.description}}</a>
-      </p>
+      <div class="col-xs-10">
+        <h3 class="panel-title"><a onbeforesave="updateList({id: list.id, title: $data})" editable-text="list.title">{{list.title}}</a></h3>
+        <p>
+          <a onbeforesave="updateList({id: list.id, description: $data})" editable-text="list.description">{{list.description}}</a>
+        </p>
+      </div>
+      <div class="col-xs-2 text-right">
+        <a href="" class="pull-right text-danger" ng-click="delete(list)"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+      </div>
     </div>
     <div class="panel-body">
       <card-box ng-repeat="card in cards" card="card" list="list"></card-box>
-      <div class="col-sm-12 text-center">
-        <a class="" ng-click="show()">+ new card</a>
+      <div class="col-sm-12 text-center new-list-card-box">
+        <a class="new-list-link" ng-click="show()">+ new card</a>
       </div>
     </div>
   </div>

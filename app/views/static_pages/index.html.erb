@@ -1,15 +1,17 @@
 <%= content_for(:angular_app) do %>
   ng-app="app"
 <% end %>
-<div id="body-tainer" class="container">
-  <div class="row">
-    <div class='col-sm-8'>
-      <h2>Projects Page</h2>
+<div id="body-tainer" >
+  <div class="container">
+    <div class="row cramped">
+      <div class='col-sm-8 col-xs-7'>
+        <div ui-view="title">
+        </div>
+      </div>
+      <div class="col-sm-4 col-xs-5 text-right">
+        <div ui-view="boardNav"></div>
+      </div>
     </div>
-    <div class="col-sm-4 text-right">
-      <div ui-view="boardNav"></div>
-    </div>
+    <div ui-view="board"></div>
   </div>
-
-  <div ui-view="board"></div>
 </div>
