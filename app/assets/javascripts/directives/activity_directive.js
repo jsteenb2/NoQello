@@ -1,4 +1,4 @@
-app.directive("activityBox", ["ModalService", 'activityService', function(ModalService, activityService, $scope){
+app.directive("activityBox", ["ModalService", 'activityService', function(ModalService, activityService){
 
   return {
     templateUrl: "templates/directives/activity_box.html",
@@ -10,13 +10,12 @@ app.directive("activityBox", ["ModalService", 'activityService', function(ModalS
     link: function(scope, el, attr){
 
       scope.status = function(){
-        $scope.activity.completed = !$scope.activity.completed;
-        console.log(activity);
+        scope.activity.completed = !scope.activity.completed;
           var data = {
-            id: $scope.activity.id,
-            completed: $scope.activity.completed
+            id: scope.activity.id,
+            completed: scope.activity.completed
           };
-          $scope.updateActivity(data).then(function(response) {
+          scope.updateActivity(data).then(function(response) {
             return response;
           }).catch(function(reason){ console.log(reason); });
       };

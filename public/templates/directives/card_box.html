@@ -4,7 +4,8 @@
     <div class="thumbnail" ng-click="show()">
       <div class="caption">
         <h3>{{card.title}}</h3>
-        <p>{{card.description}}</p>
+        <p class="date-color"><strong>Due: {{card.due_date | date}}</strong> <span ng-show="card.completed" class="glyphicon glyphicon-ok" aria-hidden="true"></span></p>
+        <!-- <p>{{card.description}}</p> -->
       </div>
     </div>
   </div>

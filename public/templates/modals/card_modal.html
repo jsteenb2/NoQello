@@ -12,7 +12,7 @@
                     <div class="row">
                       <label class="col-sm-3 control-label text-right">Due Date</label>
                       <div class="col-sm-9">
-                        <p><a onbeforesave="updateCard({id: card.id, dueDate: card.due_date})" e-ng-click="open($event,'$data')" editable-bsdate="card.due_date" e-is-open="opened.$data" e-datepicker-popup="MMMM--dd--yyyy">{{ (card.due_date | date:"MM/dd/yyyy") || 'empty' }}</a></p>
+                        <p><a onbeforesave="updateCard({id: card.id, dueDate: card.due_date})" e-ng-click="open($event,'$data')" editable-bsdate="card.due_date" e-is-open="opened.$data" e-datepicker-popup="MMMM--dd--yyyy">{{ (card.due_date | date) || 'empty' }}</a></p>
                       </div>
                     </div>
                     <div class="row">

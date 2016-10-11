@@ -3,6 +3,10 @@ app.controller("boardIndexCtrl", ['$scope', "boards","boardService", "$state", "
   $scope.boards = boards;
   $scope.newFlag = false;
 
+  $scope.$on('updatedList', function(ev, data){
+
+  });
+
   $scope.getBoards = function(){
     return boardService.getBoards().$object;
   };

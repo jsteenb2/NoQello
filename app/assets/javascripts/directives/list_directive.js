@@ -1,10 +1,11 @@
-app.directive("lister", ['listService', 'ModalService','$rootScope', 'cardService', function(listService, ModalService, $rootScope, cardService){
+app.directive("lister", ['listService', 'ModalService','$rootScope', 'cardService', 'boardService', function(listService, ModalService, $rootScope, cardService, boardService){
 
   return {
     templateUrl: "templates/directives/lister.html",
     restrict: "E",
     scope: {
-      list: "="
+      list: "=",
+      board: "="
     },
     link: function(scope, el, attr){
       scope.cards = scope.list.cards;
@@ -12,6 +13,7 @@ app.directive("lister", ['listService', 'ModalService','$rootScope', 'cardServic
       scope.updateList = function(listParams){
         return listService.updateList(listParams)
           .then(function(response){
+            boardService.getBoard(scope.board.id);
             return;
           }).catch(function(reason){
             console.log(reason);

@@ -6,5 +6,8 @@
     <p class="form-control">
       <a onbeforesave="updateActivity({id: activity.id, description: $data})" editable-text="activity.description">{{activity.description}}</a>
     </p>
+    <span class="input-group-addon">
+      {{activity.completed ? "Donezo" : "Progress"}}
+    </span>
   </div>
 </div>
