@@ -450,12 +450,12 @@ span.editable-buttons {
 }
 
 .modal-content {
-  background-color: #ffe;
   -moz-box-shadow:    0 0 40px #f05f40;
   -webkit-box-shadow: 0 0 40px #f05f40;
   box-shadow:         0 0 40px #f05f40;
 }
 
-.panel-heading {
+.panel-heading,
+.activity {
   word-wrap: break-word;
 }

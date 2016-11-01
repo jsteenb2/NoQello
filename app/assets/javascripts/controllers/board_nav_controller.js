@@ -13,7 +13,7 @@ app.controller("boardNavCtrl", ['_', '$scope', "boards", '$state', 'ModalService
     }).then(function(modal) {
         modal.element.show();
         modal.close.then(function(result) {
-            console.log(result);
+          return result;
         });
     });
   };

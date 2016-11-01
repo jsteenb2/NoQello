@@ -1,10 +1,13 @@
-app.controller("boardIndexCtrl", ['$scope', "boards","boardService", "$state", "listService", "ModalService", function($scope, boards, boardService, $state, listService, ModalService){
+app.controller("boardIndexCtrl", ['$scope', "boards","boardService", "$state", "listService", "ModalService", "_", '$rootScope', function($scope, boards, boardService, $state, listService, ModalService, _, $rootScope){
 
   $scope.boards = boards;
   $scope.newFlag = false;
 
-  $scope.$on('updatedList', function(ev, data){
-
+  $rootScope.$on('board.addList', function(ev, data){
+    var board = _.find($scope.boards, function(board){
+      return board.id == data.board_id;
+    });
+    board.lists.push(data);
   });
 
   $scope.getBoards = function(){

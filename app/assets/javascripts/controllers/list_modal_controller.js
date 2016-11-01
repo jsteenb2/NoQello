@@ -1,4 +1,4 @@
-app.controller('listModalController', ['$scope', 'close', 'listService', '$stateParams', 'board', function($scope, close, listService, $stateParams, board){
+app.controller('listModalController', ['$scope', 'close', 'listService', '$stateParams', 'board', '$rootScope', function($scope, close, listService, $stateParams, board, $rootScope){
 
   $scope.newList = {
     board_id: board.id || $stateParams.id
@@ -7,7 +7,7 @@ app.controller('listModalController', ['$scope', 'close', 'listService', '$state
   $scope.createList = function(){
     return listService.createList($scope.newList)
       .then(function(response){
-        board.lists.push(response);
+        $rootScope.$emit('board.addList', response.plain());
         $scope.close();
         $scope.reset();
         return;
