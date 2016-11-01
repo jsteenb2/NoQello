@@ -39,6 +39,14 @@
   border-bottom: dashed 1px #444;
 }
 
+.modal-body .editable-click:hover,
+.modal-body a.editable-click:hover {
+  font-size: 1.1em;
+  color: #444;
+  border-bottom: dashed 1px #444;
+  display: block;
+}
+
 .shake {
     margin-left: 15px;
     -webkit-animation-name: shake;
@@ -458,4 +466,14 @@ span.editable-buttons {
 .panel-heading,
 .activity {
   word-wrap: break-word;
+}
+
+.activity{
+  white-space: normal;
+}
+
+#activity-row {
+  input{
+    min-width: 100%;
+  }
 }

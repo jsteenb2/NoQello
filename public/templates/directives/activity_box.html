@@ -3,9 +3,9 @@
     <span class="input-group-addon">
       <input ng-checked="activity.completed" ng-click="status()" type="checkbox" aria-label="...">
     </span>
-    <p class="form-control">
-      <a class="activity" onbeforesave="updateActivity({id: activity.id, description: $data})" editable-text="activity.description">{{activity.description}}</a>
-    </p>
+    <div class="form-control">
+      <input  class="activity" onbeforesave="updateActivity({id: activity.id, description: $data})" editable-text="activity.description" value="{{activity.description}}"/>
+    </div>
     <span class="input-group-addon">
       {{activity.completed ? "Donezo" : "Progress"}}
     </span>

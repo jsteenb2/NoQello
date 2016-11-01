@@ -38,10 +38,10 @@
                       <div class="col-sm-12">
                         <br />
                         <h5>Activities</h5>
-                        <div class='row' ng-repeat="activity in card.activities">
-                          <div class="col-sm-12">
-                            <activity-box activity="activity" card="card"></activity-box>
-                          </div>
+                        <div class='row' id="activity-row" ng-repeat="activity in card.activities">
+                          <!-- <div > -->
+                            <activity-box class="col-sm-12" activity="activity" card="card"></activity-box>
+                          <!-- </div> -->
                         </div>
                         <div ng-show="newActivityFlag" class="row">
                           <div class="col-sm-12">

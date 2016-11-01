@@ -19,7 +19,6 @@ app.controller("boardIndexCtrl", ['$scope', "boards","boardService", "$state", "
   };
 
   $scope.delete = function(board){
-    console.log(board);
     return boardService.removeBoard(board)
             .then(function(response){
               _.remove(scope.boards, {id: board.id
