@@ -1,10 +1,13 @@
-app.controller("boardShowCtrl", ['$scope', "board", "ModalService", "_", function($scope, board, ModalService, _){
+app.controller("boardShowCtrl", ['$scope', "board", "ModalService", "_", '$rootScope', function($scope, board, ModalService, _, $rootScope){
   $scope.board = board;
 
   $scope.$on('removedList', function(ev, data){
-    console.log(data.id);
     _.remove($scope.board.lists, {id: data.data.id
       });
+  });
+
+  $rootScope.$on('board.addList', function(ev, data){
+    $scope.board.lists.push(data);
   });
 
   $scope.show = function(){
