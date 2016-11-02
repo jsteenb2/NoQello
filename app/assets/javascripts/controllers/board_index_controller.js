@@ -10,6 +10,19 @@ app.controller("boardIndexCtrl", ['$scope', "boards","boardService", "$state", "
     board.lists.push(data);
   });
 
+  $rootScope.$on('removedList', function(ev, data){
+    console.log(data);
+    var board = _.find($scope.boards, function(board){
+      return board.id == data.board_id;
+    });
+    _.remove(board.lists, {id: data.data.id
+      });
+    if (_.isEmpty(board.lists)){
+      $rootScope.$emit('emptiedBoard', data.board_id);
+    }
+    board.lists.push(data);
+  });
+
   $scope.getBoards = function(){
     return boardService.getBoards().$object;
   };

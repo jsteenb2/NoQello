@@ -10,6 +10,13 @@ app.directive("lister", ['listService', 'ModalService','$rootScope', 'cardServic
     link: function(scope, el, attr){
       scope.cards = scope.list.cards;
 
+      $rootScope.$on('emptiedBoard', function(ev, boardId){
+        if (scope.board.id == boardId){
+          element.remove();
+          scope.$destroy();
+        }
+      });
+
       scope.updateList = function(listParams){
         return listService.updateList(listParams)
           .then(function(response){
@@ -24,7 +31,8 @@ app.directive("lister", ['listService', 'ModalService','$rootScope', 'cardServic
         return listService.removeList(scope.list.id)
           .then(function(response){
             console.log(scope.list);
-              scope.$emit('removedList', { data: scope.list });
+            console.log(scope.board);
+              scope.$emit('removedList', { data: scope.list, board_id: scope.board.id });
               return response;
           });
       };
