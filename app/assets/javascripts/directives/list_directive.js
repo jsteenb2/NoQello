@@ -10,13 +10,6 @@ app.directive("lister", ['listService', 'ModalService','$rootScope', 'cardServic
     link: function(scope, el, attr){
       scope.cards = scope.list.cards;
 
-      $rootScope.$on('emptiedBoard', function(ev, boardId){
-        if (scope.board.id == boardId){
-          element.remove();
-          scope.$destroy();
-        }
-      });
-
       scope.updateList = function(listParams){
         return listService.updateList(listParams)
           .then(function(response){

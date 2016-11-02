@@ -15,8 +15,9 @@ app.controller("boardIndexCtrl", ['$scope', "boards","boardService", "$state", "
     var board = _.find($scope.boards, function(board){
       return board.id == data.board_id;
     });
-    _.remove(board.lists, {id: data.data.id
-      });
+    _.remove(board.lists, function(list){
+        return list.id == data.data.id;
+    });
     if (_.isEmpty(board.lists)){
       $rootScope.$emit('emptiedBoard', data.board_id);
     }

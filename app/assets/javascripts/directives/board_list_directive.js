@@ -6,7 +6,7 @@ app.directive("boardList", ['listService', 'ModalService', '$rootScope', 'cardSe
             list: "=",
             board: "="
         },
-        link: function(scope){
+        link: function(scope, element, attrs){
           scope.deleteList = function(list){
             return listService.removeList(list.id)
               .then(function(response){
@@ -15,6 +15,15 @@ app.directive("boardList", ['listService', 'ModalService', '$rootScope', 'cardSe
                 return;
               });
           };
+
+          $rootScope.$on('emptiedBoard', function(ev, boardId){
+            if (scope.board.id == boardId){
+              console.log('things are in board-list if');
+              element.remove();
+              console.log(element);
+              scope.$destroy();
+            }
+          });
         }
     };
 }]);
